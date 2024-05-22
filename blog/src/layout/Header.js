@@ -11,7 +11,7 @@ const Header = () => {
     return(
         <header>
             <Navbar expand="lg" className="bg-body-tertiary">
-            <Container style={{marginLeft:"0px"}}>
+            <Container style={{marginLeft:"1%", marginRight:"0%"}}>
                 <Navbar.Brand href="/">NINANO</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
@@ -21,6 +21,11 @@ const Header = () => {
                 </Nav>
                 </Navbar.Collapse>
             </Container>
+            <div style={{marginLeft:"6%"}}>
+                <Button style={{}} variant="secondary">
+                    <Nav.Link href={`/user/login`}>로그인</Nav.Link>
+                </Button>{' '}
+            </div>
             </Navbar>
 
         </header>
