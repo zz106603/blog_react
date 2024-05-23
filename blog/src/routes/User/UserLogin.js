@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react'
 
 import UserInput from './UserInput'
 import UserButton from './UserButton';
-
+import axios from "axios"
 import { Form, Button, Container, Row, Col } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -19,7 +19,7 @@ const UserLogin = () => {
     }, []);
 
  // 이메일, 비밀번호
- const handleInputChange = event => {
+ const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUserInfo(userInfo => ({
       ...userInfo,
@@ -34,27 +34,42 @@ const UserLogin = () => {
     //userInfo.password.length >= 10
 
     
-   const loginProgcess = () => {
-//     fetch('/data/Login.json', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json;charset=utf-8',
-//       },
-//       body: JSON.stringify({
-//         email: userInfo.email,
-//         password: userInfo.password,
-//       }),
-//     })
-//       .then(response => response.json())
-//       .then(data => {
-//         if (data.message === 'LOGIN SUCCESS') {
-//           alert('로그인 되었습니다.');
-//           localStorage.setItem('token', data.message);
-//           navigate('/main');
-//         } else {
-//           alert('가입되지 않은 정보입니다.');
-//         }
-//       });
+   const loginProgcess = async (event) => {
+    event.preventDefault();
+    
+    try{
+      const loginUrl = 'http://localhost:8080/login'; // Spring Security
+      
+      const response = await axios.post(loginUrl, userInfo, {
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }
+    });
+
+      console.log(response.data.status);
+
+      if(response.data.status === 'success'){
+        const previousPage = window.document.referrer;
+        console.log('이전 페이지 주소:', previousPage);
+        window.history.back(); // 이전 페이지로 이동
+      }else{
+        alert('아이디나 비밀번호가 일치하지 않습니다.')
+      }
+
+
+      // if (response.status === 201) {
+      //   alert('회원가입이 완료되었습니다.')
+      //   window.location.href = `/user/login`
+      //   console.log('Form submitted successfully:', response.data);
+      // } else {
+      //       alert('회원가입에 실패했습니다.')
+      //       console.error('Form submission failed:', response.statusText);
+      // }
+    } catch (error) {
+        alert('로그인에 실패했습니다.')
+        console.error('Error submitting form:', error);
+    }
+
    };
 
   // 회원가입 페이지 이동
@@ -71,11 +86,11 @@ const UserLogin = () => {
             <Form onSubmit={loginProgcess}>
                 <Form.Group className="mb-2" controlId="formbasicEmail" >
                     <Form.Label> 아이디 </Form.Label>
-                    <Form.Control type="text" name='id'/>
+                    <Form.Control type="text" name='loginId' onChange={handleInputChange}/>
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label> 비밀번호 </Form.Label>
-                    <Form.Control type="password" name="pw"/>
+                    <Form.Control type="password" name="password" onChange={handleInputChange}/>
 
                 </Form.Group>
                 
