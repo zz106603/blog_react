@@ -21,6 +21,10 @@
 - (Jwt Token 인증 추가 예정)
 - (로그인 상태에 따라 화면 렌더링 및 권한 추가 예정)
 
+### 2024-05-28
+- 로그인/로그아웃 Jwt 토큰 구현
+- AccessToken, RefreshToken 응답 처리 및 localStorage 저장/활용
+
 ### 게시판
 ※ 게시글 목록
 

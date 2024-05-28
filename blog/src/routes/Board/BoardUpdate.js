@@ -7,6 +7,7 @@ import Toast from 'react-bootstrap/Toast';
 import Nav from 'react-bootstrap/Nav';
 
 import Form from 'react-bootstrap/Form';
+import instance from '../Axios/AxiosConfig';
 
 const BoardUpdate = () => {
 
@@ -20,14 +21,18 @@ const BoardUpdate = () => {
     const [content, setContent] = useState('');
 
     const getBoard = async () => {
-        const resp = (await axios.get(`//localhost:8080/api/posts/${id}`)).data
-        setBoard(resp.data)
-        setLoading(false);
-
-        setTitle(resp.data.title)
-        setContent(resp.data.content)
-        setCategory(resp.data.category)
-        setWriter(resp.data.writer)
+        try{
+            const resp = (await instance.get(`/api/posts/${id}`)).data
+            setBoard(resp.data)
+            setLoading(false);
+    
+            setTitle(resp.data.title)
+            setContent(resp.data.content)
+            setCategory(resp.data.category)
+            setWriter(resp.data.writer)
+        }catch(error){
+            console.log('API 호출 에러: ', error)
+        }
     }
 
     useEffect(()=>{
@@ -67,7 +72,7 @@ const BoardUpdate = () => {
         console.log(formData)
     
         try {
-            const response = await axios.put('http://localhost:8080/api/posts/update', formData, {
+            const response = await instance.put('/api/posts/update', formData, {
                 headers: {
                   'Content-Type': 'application/json', // 요청 헤더에 Content-Type을 application/json으로 설정합니다.
                 },
@@ -91,7 +96,7 @@ const BoardUpdate = () => {
     const deleteBoard = async () => {
         if (window.confirm('포스트를 삭제하시겠습니까?')) {
             try {
-              await axios.delete(`http://localhost:8080/api/posts/delete?id=${id}`);
+              await instance.delete(`/api/posts/delete?id=${id}`);
                 alert('삭제되었습니다.');
                 window.location.href = `/board`;
             } catch (error) {

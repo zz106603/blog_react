@@ -3,7 +3,9 @@ import React from 'react'
 const BoardList = () => {
     return(
         <div>
-            홈 화면
+            <div class="container text-center">
+                홈
+            </div>
         </div>
     );
 };

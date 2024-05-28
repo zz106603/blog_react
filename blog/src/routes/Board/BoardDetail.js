@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 
 import Toast from 'react-bootstrap/Toast';
 import Nav from 'react-bootstrap/Nav';
+import instance from '../Axios/AxiosConfig';
 
 const BoardDetail = () => {
 
@@ -14,10 +15,15 @@ const BoardDetail = () => {
     const [board, setBoard] = useState([]);
 
     const getBoard = async () => {
-        const resp = (await axios.get(`//localhost:8080/api/posts/${id}`)).data
+      try{
+        const resp = (await instance.get(`/api/posts/${id}`)).data
         setBoard(resp.data)
         setLoading(false);
+      }catch(error){
+        console.log('API 호출 에러: ', error)
+      }
     }
+
 
     useEffect(()=>{
         getBoard();

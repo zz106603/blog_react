@@ -7,6 +7,7 @@ import Toast from 'react-bootstrap/Toast';
 import Nav from 'react-bootstrap/Nav';
 
 import Form from 'react-bootstrap/Form';
+import instance from '../Axios/AxiosConfig';
 
 const BoardCreate = () => {
 
@@ -54,7 +55,7 @@ const BoardCreate = () => {
 
         if (window.confirm('포스트를 등록하시겠습니까?')) {
             try {
-                const response = await axios.post('http://localhost:8080/api/posts/create', formData, {
+                const response = await instance.post('/api/posts/create', formData, {
                     headers: {
                     'Content-Type': 'application/json',
                     },

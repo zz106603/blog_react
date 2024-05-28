@@ -5,6 +5,8 @@ import Pagination from 'react-bootstrap/Pagination';
 import {Link} from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
 import Nav from 'react-bootstrap/Nav';
+import instance from '../Axios/AxiosConfig';
+import { Form, Container, Row, Col } from 'react-bootstrap'
 
 const BoardList = () => {
 
@@ -13,9 +15,14 @@ const BoardList = () => {
     const [pagination, setPagination] = useState([]);
 
     const getBoardList = async (page) => {
-        const resp = (await axios.get(`//localhost:8080/api/posts/all?page=${page}`)).data
-        setBoardList(resp.data.list)
-        setPagination(resp.data.pagination)
+        try{
+            const resp = (await instance.get(`/api/posts/all?page=${page}`)).data
+            setBoardList(resp.data.list)
+            setPagination(resp.data.pagination)
+        }catch(error){
+            console.error('API 요청 에러: ', error)
+            window.location.href = "/user/login"
+        }
     }
 
     useEffect(()=>{
@@ -95,7 +102,7 @@ const BoardList = () => {
         {/* </Table> */}
         </table>
 
-        <Button style={{margin:"1%", marginLeft:"90%"}} variant="secondary">
+            <Button style={{margin:"1%", marginLeft:"90%"}} variant="secondary">
                 <Nav.Link href={`/board/create`}>글쓰기</Nav.Link>
             </Button>{' '}
 

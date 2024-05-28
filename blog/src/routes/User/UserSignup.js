@@ -54,7 +54,7 @@ const UserSignup = () => {
 
         if (window.confirm('회원가입을 진행하시겠습니까?')) {
             try {
-                const response = await axios.post('http://localhost:8080/api/user/create', userInfo, {
+                const response = await axios.post('http://localhost:8080/api/auth/create', userInfo, {
                     headers: {
                     'Content-Type': 'application/json',
                     },

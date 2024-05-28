@@ -1,11 +1,10 @@
 /* BoardDetail.js */
 import React, {useEffect, useState} from 'react'
 
-import UserInput from './UserInput'
-import UserButton from './UserButton';
 import axios from "axios"
 import { Form, Button, Container, Row, Col } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import instance from '../Axios/AxiosConfig';
 
 const UserLogin = () => {
 
@@ -38,20 +37,26 @@ const UserLogin = () => {
     event.preventDefault();
     
     try{
-      const loginUrl = 'http://localhost:8080/login'; // Spring Security
+      const loginUrl = 'http://localhost:8080/api/auth/login'; // Spring Security
       
       const response = await axios.post(loginUrl, userInfo, {
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'application/json'
         }
     });
 
-      console.log(response.data.status);
+      console.log(response.data.data);
 
-      if(response.data.status === 'success'){
-        const previousPage = window.document.referrer;
-        console.log('이전 페이지 주소:', previousPage);
-        window.history.back(); // 이전 페이지로 이동
+      if(response.data.status === 200){
+        localStorage.setItem('access_token', response.data.data.accessToken)
+        localStorage.setItem('refresh_token', response.data.data.refreshToken)
+         const previousPage = window.document.referrer;
+         const signupPagePattern = /\/user\/signup$/;
+         if (previousPage && !signupPagePattern.test(previousPage)) {
+          window.history.back(); // 이전 페이지로 이동
+         }else
+          window.location.href = "/"
+        
       }else{
         alert('아이디나 비밀번호가 일치하지 않습니다.')
       }
