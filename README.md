@@ -49,7 +49,7 @@
 ![스크린샷 2024-05-21 164515](https://github.com/zz106603/blog_springboot/assets/45379781/55d32ae7-58ba-40f9-8797-13c82cc6353b)
 
 ※ 조회/추천 및 로그인/로그아웃 화면 갱신
-![스크린샷 2024-05-29 190250](https://github.com/zz106603/blog_react/assets/45379781/cb8a7a2-092a-4119-a9ae-bd2ce73bc752)
+![스크린샷 2024-05-29 190250](https://github.com/zz106603/blog_react/assets/45379781/11c3132d-d861-473f-8875-20cb0f4927b2)
 
 ### 사용자
 ※ 로그인 페이지
