@@ -77,23 +77,29 @@ const BoardList = () => {
         {/* <Table striped bordered hover variant="light"> */}
         <table className = "table table-hover">
             <thead className ="table-dark">
-                <tr>
+                <tr className='text-center'>
                     <th style={{width:"10%"}}>번호</th>
-                    <th style={{width:"10%"}}>제목</th>
-                    <th style={{width:"10%"}}>작성자</th>
-                    <th style={{width:"10%"}}>작성일</th>
+                    <th style={{width:"15%"}}>제목</th>
                     <th style={{width:"10%"}}>카테고리</th>
+                    <th style={{width:"15%"}}>작성일</th>
+                    <th style={{width:"10%"}}>작성자</th>
+                    <th style={{width:"5%"}}>조회</th>
+                    <th style={{width:"5%"}}>추천</th>
                 </tr>
             </thead>
             <tbody>
-               
                 {boardList.map((board) => (
-                        <tr key={board.id}>
+                        <tr className='text-center' key={board.id}>
                             <td>{board.id}</td>
-                            <td><Link to={`/board/${board.id}`}>{board.title}</Link></td>
-                            <td>{board.writer}</td>
-                            <td>{new Date(board.updateDate).toLocaleString()}</td>
+                            {/* <td><Link to={`/board/${board.id}`}>{board.title}</Link></td> */}
+                            <td><a href={`/board/${board.id}`} className="btn btn-light border-0 text-decoration-none">{board.title}</a></td>
                             <td>{board.category}</td>
+                            <td>{new Date(board.updateDate).toLocaleString()}</td>
+                            {/* <td>{board.formattedDate}</td> */}
+                            <td>{board.writer}</td>
+                            <td>{board.selectCount}</td>
+                            <td>{board.recomCount}</td>
+                            
                         </tr>
                     
                 ))}

@@ -11,18 +11,20 @@ import instance from '../Axios/AxiosConfig';
 
 const BoardCreate = () => {
 
-    const [writer, setWriter] = useState('');
+    // const [writer, setWriter] = useState('');
+    
+    const writer = localStorage.getItem('id') || ''; // 기본값은 빈 문자열입니다.
     const [category, setCategory] = useState('');
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
 
     useEffect(()=>{
-        
+
     }, []);
 
-    const handleChangeWriter = (e) => {
-        setWriter(e.target.value);
-    };
+    // const handleChangeWriter = (e) => {
+    //     setWriter(e.target.value);
+    // };
     
     const handleChangeTitle = (e) => {
         setTitle(e.target.value);
@@ -81,11 +83,13 @@ const BoardCreate = () => {
     <div>
         <Form onSubmit={handleSubmit} style={{border:"1px solid lightgray", borderRadius:"10px", padding:"2%", margin:"1%", width:"50%", marginLeft:"25%"}}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label>작성자</Form.Label>
-            <Form.Control type="text" value={writer} onChange={handleChangeWriter} />
+            <Form.Label className='fw-bold'>작성자</Form.Label>
+            {/* <Form.Control type="text" value={writer} readOnly /> */}
+            <Form.Control plaintext readOnly defaultValue={writer} />
+            {/* <Form.Control type="text" value={writer} onChange={handleChangeWriter} /> */}
         </Form.Group>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label>카테고리</Form.Label>
+            <Form.Label className='fw-bold'>카테고리</Form.Label>
             <Form.Select aria-label="Default select example" value={category} onChange={handleChangeCategory}>
                 <option>카테고리를 선택하세요.</option>
                 <option value="IT">IT</option>
@@ -95,19 +99,25 @@ const BoardCreate = () => {
             </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label>제목</Form.Label>
+            <Form.Label className='fw-bold'>제목</Form.Label>
             <Form.Control type="text" value={title} onChange={handleChangeTitle} />
         </Form.Group>
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-            <Form.Label>내용</Form.Label>
+            <Form.Label className='fw-bold'>내용</Form.Label>
             <Form.Control as="textarea" rows={10} value={content} onChange={handleChangeContent} />
         </Form.Group>
-
-            <Button variant="light">
-                <Nav.Link href={`/board`}>취소</Nav.Link>
-            </Button>{' '}
-            
-            <Button type="submit">저장</Button>
+            <div className='container text-center'>
+                <div className="row justify-content-md-center">
+                    <div className="col-md-auto">
+                        <Button variant="light">
+                            <Nav.Link href={`/board`}>취소</Nav.Link>
+                        </Button>{' '}
+                    </div>
+                    <div className="col-md-auto">
+                        <Button type="submit">저장</Button>
+                    </div>
+                </div>
+            </div>
         </Form>
 
 

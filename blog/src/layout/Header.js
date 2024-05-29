@@ -11,16 +11,21 @@ const Header = () => {
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+    const [loginId, setloginId] = useState();
+
     useEffect(() => {
         // localStorage에서 accessToken 가져오기
         const accessToken = localStorage.getItem('access_token');
+        const logId = localStorage.getItem('id');
         // accessToken이 있으면 로그인 상태로 설정
         setIsLoggedIn(!!accessToken);
+        setloginId(logId);
       }, []);
 
       const handleLogout = () => {
         // 로그아웃 버튼 클릭 시 localStorage에서 accessToken 제거
         localStorage.removeItem('access_token');
+        localStorage.removeItem('id');
         // 로그아웃 상태로 설정
         setIsLoggedIn(false);
         window.location.href = `/`
@@ -38,11 +43,14 @@ const Header = () => {
                 </Nav>
                 </Navbar.Collapse>
             </Container>
-            <div style={{marginLeft:"6%"}}>
+            <div style={{marginLeft:"0%"}}>
                 {isLoggedIn ? (
-                        <Button className='btn border-0'style={{}} variant="danger">
-                        <Nav.Link onClick={handleLogout}>로그아웃</Nav.Link>
-                        </Button>
+                        <div>
+                            {loginId}님
+                            <Button className='btn border-0 ml-5'style={{}} variant="danger">
+                            <Nav.Link onClick={handleLogout}>로그아웃</Nav.Link>
+                            </Button>
+                        </div>
                 ) : (
                         <Button className='btn border-0' style={{}} variant="primary">
                         <Nav.Link href={`/user/login`}>로그인</Nav.Link>

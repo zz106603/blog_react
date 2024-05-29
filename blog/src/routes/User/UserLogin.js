@@ -50,6 +50,7 @@ const UserLogin = () => {
       if(response.data.status === 200){
         localStorage.setItem('access_token', response.data.data.accessToken)
         localStorage.setItem('refresh_token', response.data.data.refreshToken)
+        localStorage.setItem('id', response.data.data.loginId)
          const previousPage = window.document.referrer;
          const signupPagePattern = /\/user\/signup$/;
          if (previousPage && !signupPagePattern.test(previousPage)) {

@@ -138,15 +138,26 @@ const BoardUpdate = () => {
             <Form.Control as="textarea" rows={10} value={content} onChange={handleChangeContent} />
         </Form.Group>
 
-            <Button variant="light">
-                <Nav.Link href={`/board/${id}`}>취소</Nav.Link>
-            </Button>{' '}
-            
-            <Button type="submit">수정</Button>
-            
-            <Button style={{marginLeft:"76%"}} variant="danger" onClick={deleteBoard}>
-                <Nav.Link href={`/board/delete/${id}`}>삭제</Nav.Link>
-            </Button>{' '}
+        <div className='container text-center'>
+                <div className="row justify-content-start">
+                    <div className="col-md-auto">
+                        <Button variant="light">
+                            <Nav.Link href={`/board/${id}`}>취소</Nav.Link>
+                        </Button>{' '}
+                    </div>
+                    <div className="col-md-auto">
+                        <Button type="submit">수정</Button>
+                    </div>
+                </div>
+                <div className="row justify-content-end">
+                    <div className="col-md-auto">
+                            <Button variant="danger" onClick={deleteBoard}>
+                                <Nav.Link href={`/board/delete/${id}`}>삭제</Nav.Link>
+                            </Button>
+                    </div>
+                </div>
+        </div>
+
         </Form>
 
       )}
