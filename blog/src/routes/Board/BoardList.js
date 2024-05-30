@@ -10,13 +10,19 @@ import { Form, Container, Row, Col } from 'react-bootstrap'
 
 const BoardList = () => {
 
+    const [sortOrder, setSortOrder] = useState(1);
     const [boardList, setBoardList] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [pagination, setPagination] = useState([]);
 
     const getBoardList = async (page) => {
         try{
-            const resp = (await instance.get(`/api/posts/all?page=${page}`)).data
+            const resp = (await instance.get(`/api/posts/all`, {
+                params: {
+                    page: page,
+                    orderType: sortOrder
+                }
+            })).data
             setBoardList(resp.data.list)
             setPagination(resp.data.pagination)
         }catch(error){
@@ -24,6 +30,14 @@ const BoardList = () => {
             window.location.href = "/user/login"
         }
     }
+
+    const handleSortChange = (e) => {
+        setSortOrder(e.target.value);
+      };
+
+    useEffect(()=>{
+        getBoardList(currentPage);
+    }, [sortOrder]);
 
     useEffect(()=>{
         getBoardList(currentPage);
@@ -75,6 +89,23 @@ const BoardList = () => {
     return(
         <div style={{marginTop:"2%", marginLeft:"20%", width:"60%"}}>
         {/* <Table striped bordered hover variant="light"> */}
+
+
+        <div className="d-flex justify-content-between mb-1">
+            <select style={{width:"15%"}} className="form-select" aria-label="Default select example" onChange={handleSortChange}>
+                <option selected>정렬</option>
+                <option value="1">최신순</option>
+                <option value="2">오래된순</option>
+                <option value="3">조회순</option>
+                <option value="4">추천순</option>
+            </select>
+
+            <div className="input-group" style={{width:"30%"}}>
+                <input type="search" className="form-control rounded" placeholder="검색어를 입력하세요." aria-label="Search" aria-describedby="search-addon" />
+                <button type="button" className="btn btn-outline-primary">검색</button>
+            </div>
+        </div>
+
         <table className = "table table-hover">
             <thead className ="table-dark">
                 <tr className='text-center'>

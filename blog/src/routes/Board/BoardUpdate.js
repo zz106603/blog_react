@@ -22,7 +22,11 @@ const BoardUpdate = () => {
 
     const getBoard = async () => {
         try{
-            const resp = (await instance.get(`/api/posts/${id}`)).data
+            const resp = (await instance.get(`/api/posts/${id}`, {
+                params: {
+                    firstFlag: 1
+                }
+            })).data
             setBoard(resp.data)
             setLoading(false);
     

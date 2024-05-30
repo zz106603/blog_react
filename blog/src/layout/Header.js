@@ -32,35 +32,33 @@ const Header = () => {
       };
 
     return(
-        <header>
-            <Navbar expand="lg" className="bg-body-tertiary">
-            <Container style={{marginLeft:"1%", marginRight:"0%"}}>
-                <Navbar.Brand href="/">NINANO</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="me-auto">
-                    <Nav.Link href="/board">Board</Nav.Link>
-                </Nav>
-                </Navbar.Collapse>
-            </Container>
-            <div style={{marginLeft:"0%"}}>
-                {isLoggedIn ? (
-                        <div>
-                            {loginId}님
-                            <Button className='btn border-0 ml-5'style={{}} variant="danger">
-                            <Nav.Link onClick={handleLogout}>로그아웃</Nav.Link>
-                            </Button>
-                        </div>
-                ) : (
-                        <Button className='btn border-0' style={{}} variant="primary">
-                        <Nav.Link href={`/user/login`}>로그인</Nav.Link>
-                        </Button>
-                )}
-                
+    <header>
+      <Navbar expand="lg" className="bg-body-tertiary">
+        <Container fluid>
+          <Navbar.Brand href="/">NINANO</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto" style={{ flex: 1 }}>
+              <Nav.Link href="/board">Board</Nav.Link>
+            </Nav>
+            <div className="d-flex align-items-center">
+              {isLoggedIn ? (
+                <div className="d-flex align-items-center">
+                  <span>{loginId}님</span>
+                  <Button className='btn border-0 ml-3' variant="danger" onClick={handleLogout}>
+                    로그아웃
+                  </Button>
+                </div>
+              ) : (
+                <Button className='btn border-0' variant="primary">
+                  <Nav.Link href="/user/login">로그인</Nav.Link>
+                </Button>
+              )}
             </div>
-            </Navbar>
-
-        </header>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </header>
     );
 };
 

@@ -29,26 +29,44 @@
 - 조회/추천수 UI 추가
 - 조회/추천수 관련 API 연동(사용자 정보 기준 추천 버튼 활성/비활성)
 
+### 2024-05-30
+- 조회 API 파라미터 추가(추천 및 조회수 이슈 해결)
+- 최신순/오래된순/조회순/추천순 정렬 추가 및 연동
+- 검색 UI 추가
+- 추천 유무에 따른 Up/Down UI 추가
+
+---
+
 ### 게시판
 ※ 게시글 목록
 
-![스크린샷 2024-05-20 202039](https://github.com/zz106603/blog_react/assets/45379781/9678f852-a7ca-4bb1-82f1-83a869296449)
+![스크린샷 2024-05-30 164543](https://github.com/zz106603/blog_react/assets/45379781/7a901634-321e-4a09-a8c8-20da2901de8c)
 
 ※  게시글 상세보기
 
-![스크린샷 2024-05-20 202050](https://github.com/zz106603/blog_react/assets/45379781/25bce7b5-cca1-4217-8a37-9c3f4428d588)
+![스크린샷 2024-05-30 164759](https://github.com/zz106603/blog_react/assets/45379781/bc864deb-215f-47ed-a693-5824941974b6)
+
+
+※  게시글 상세보기(추천)
+
+![스크린샷 2024-05-30 163127](https://github.com/zz106603/blog_react/assets/45379781/8c2b713c-9692-4b66-9248-82bc8f475828)
+![스크린샷 2024-05-30 163133](https://github.com/zz106603/blog_react/assets/45379781/66be39d1-89a1-426a-bef3-78bf07d7b3ea)
+
 
 ※  게시글 수정
-![스크린샷 2024-05-20 202105](https://github.com/zz106603/blog_react/assets/45379781/d7f7af05-c478-4163-9d87-d384f5369033)
-![스크린샷 2024-05-20 202128](https://github.com/zz106603/blog_react/assets/45379781/26b4afe3-46ff-460b-86d6-3c0486775e80)
+
+![스크린샷 2024-05-30 165017](https://github.com/zz106603/blog_react/assets/45379781/da104cef-24fa-4235-83f5-5d2da3365f50)
 
 ※  게시글 삭제
+
 ![스크린샷 2024-05-20 202137](https://github.com/zz106603/blog_react/assets/45379781/c52d685a-23cb-4f44-a591-96d8b54cac0d)
 
 ※  게시글 페이징
+
 ![스크린샷 2024-05-21 164515](https://github.com/zz106603/blog_springboot/assets/45379781/55d32ae7-58ba-40f9-8797-13c82cc6353b)
 
 ※ 조회/추천 및 로그인/로그아웃 화면 갱신
+
 ![스크린샷 2024-05-29 190250](https://github.com/zz106603/blog_react/assets/45379781/11c3132d-d861-473f-8875-20cb0f4927b2)
 
 ### 사용자
