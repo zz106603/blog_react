@@ -159,11 +159,11 @@ const BoardDetail = () => {
 
             <div className='container text-center'>
                 <div className="row justify-content-between mb-3">
-                    <div className="col-md-auto">
+                    {/* <div className="col-md-auto">
                       <Button variant="light">
                       <Nav.Link href="/board">뒤로가기</Nav.Link>
                       </Button>{' '}
-                    </div>
+                    </div> */}
                     <div className="col-md-auto">
                       {canEdit() && (  
                         <Button variant="primary">
@@ -173,7 +173,67 @@ const BoardDetail = () => {
                     </div>
                 </div>
             </div>
+
+    <section id="comments-section" style={{marginTop:"0px"}}>
+      <div id="comments-container">
+          <table className="table">
+              <thead style={{borderBottom:"3px solid gray"}}>
+              <tr>
+                <th style={{width:"10%"}}>전체 댓글 4개</th>
+              </tr>
+              </thead>
+              <tbody style={{borderBottom:"3px solid gray"}}>
+              <tr style={{borderBottom:"1px solid black"}}>
+                <td style={{width:"10%", fontSize:"0.8rem"}}>zz106603</td>
+                <td style={{width:"40%"}}>가나다라마바사아자차카타파하ABCDEFGHIJKLMNOPQRSTUVWXYZ</td>
+                <td style={{width:"10%", fontSize:"0.8rem"}}>2024-05-31 14:36:15</td> 
+                <td style={{width:"5%"}}><Button className="btn btn-danger btn-sm">X</Button></td> 
+              </tr>
+              <tr style={{borderBottom:"1px solid black"}}>
+                  <td style={{fontSize:"0.8rem"}}>zz</td>
+                  <td>안녕하세요~</td>
+                  <td style={{fontSize:"0.8rem"}}>2024-05-31 14:36:15</td> 
+                  <td><Button className="btn btn-danger btn-sm">X</Button></td> 
+              </tr>
+              <tr style={{borderBottom:"1px solid black"}}>
+                  <td style={{fontSize:"0.8rem"}}>zz</td>
+                  <td>ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ글자가 길어지면 어떻게 되는지 테스트ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ</td>
+                  <td style={{fontSize:"0.8rem"}}>2024-05-31 14:36:15</td> 
+                  <td><Button className="btn btn-danger btn-sm">X</Button></td> 
+              </tr>
+              <tr style={{borderBottom:"1px solid black"}}>
+                  <td style={{fontSize:"0.8rem"}}>zz</td>
+                  <td>ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ글자가 길어지면 어떻게 되는지 테스트ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ</td>
+                  <td style={{fontSize:"0.8rem"}}>2024-05-31 14:36:15</td> 
+                  <td><Button className="btn btn-danger btn-sm">X</Button></td> 
+              </tr>
+              </tbody>
+          </table>
+      </div>
+      
+      {/* <div className='m-2'>
+        <form id="comment-form">
+            <div class="form-group">
+                <label for="comment">댓글 추가:</label>
+                <textarea class="form-control" id="comment" rows="3"></textarea>
+            </div>
+            <button type="button" class="btn btn-primary" id="create-comment-btn">작성</button>
+        </form>
+      </div> */}
+      <div className="m-2">
+        <form id="comment-form">
+            <div className="form-group">
+                <div className="d-flex">
+                    <textarea className="form-control mr-2" id="comment" rows="2"></textarea>
+                    <button type="button" style={{width:"100px", height:"9vh"}} className="btn btn-primary align-self-start" id="create-comment-btn"><small>등록</small></button>
+                </div>
+            </div>
+        </form>
+      </div>
+    </section>
         </Toast>
+
+
       )}
 
 
