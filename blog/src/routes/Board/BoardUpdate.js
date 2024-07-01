@@ -1,17 +1,12 @@
 import React, {useEffect, useState} from 'react'
-import axios from "axios"
 import { useParams } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
-
-import Toast from 'react-bootstrap/Toast';
 import Nav from 'react-bootstrap/Nav';
-
 import Form from 'react-bootstrap/Form';
 import instance from '../Axios/AxiosConfig';
-
 const BoardUpdate = () => {
 
-    const {id} = useParams();
+    const {postId} = useParams();
     const [loading, setLoading] = useState(true);
     const [board, setBoard] = useState([]);
 
@@ -22,7 +17,7 @@ const BoardUpdate = () => {
 
     const getBoard = async () => {
         try{
-            const resp = (await instance.get(`/api/posts/${id}`, {
+            const resp = (await instance.get(`/api/posts/${postId}`, {
                 params: {
                     firstFlag: 1
                 }
@@ -66,7 +61,7 @@ const BoardUpdate = () => {
         event.preventDefault();
         
         const formData = {
-          id: id,
+          id: postId,
           writer: writer,
           title: title,
           content: content,
@@ -93,20 +88,20 @@ const BoardUpdate = () => {
             alert('수정에 실패했습니다.')
             console.error('Error submitting form:', error);
         }
-        window.location.href = `/board/${id}`
+        window.location.href = `/board/${postId}`
       };
 
     //삭제
     const deleteBoard = async () => {
         if (window.confirm('포스트를 삭제하시겠습니까?')) {
             try {
-              await instance.delete(`/api/posts/delete?id=${id}`);
-                alert('삭제되었습니다.');
+              await instance.delete(`/api/posts/delete?postId=${postId}`);
+                alert('삭제되었습니다.')
                 window.location.href = `/board`;
             } catch (error) {
                 console.error('삭제 실패:', error);
                 alert('삭제에 실패하였습니다.');
-                window.location.href = `/board/${id}`;
+                window.location.href = `/board/${postId}`;
                 // 실패했을 때 처리할 로직 추가
             }
           }
@@ -146,7 +141,7 @@ const BoardUpdate = () => {
                 <div className="row justify-content-start">
                     <div className="col-md-auto">
                         <Button variant="light">
-                            <Nav.Link href={`/board/${id}`}>취소</Nav.Link>
+                            <Nav.Link href={`/board/${postId}`}>취소</Nav.Link>
                         </Button>{' '}
                     </div>
                     <div className="col-md-auto">
@@ -156,7 +151,7 @@ const BoardUpdate = () => {
                 <div className="row justify-content-end">
                     <div className="col-md-auto">
                             <Button variant="danger" onClick={deleteBoard}>
-                                <Nav.Link href={`/board/delete/${id}`}>삭제</Nav.Link>
+                                <Nav.Link href={`/board/delete/${postId}`}>삭제</Nav.Link>
                             </Button>
                     </div>
                 </div>

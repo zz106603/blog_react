@@ -13,8 +13,8 @@ function App() {
     <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="board" element={<BoardList/>}/>
-      <Route path="board/:id" element={<BoardDetail/>}/>
-      <Route path="board/update/:id" element={<BoardUpdate/>}/>
+      <Route path="board/:postId" element={<BoardDetail/>}/>
+      <Route path="board/update/:postId" element={<BoardUpdate/>}/>
       <Route path="board/create" element={<BoardCreate/>}/>
       <Route path="user/login" element={<UserLogin/>}/>
       <Route path="user/signup" element={<UserSignup/>}/>
