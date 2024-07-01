@@ -62,7 +62,7 @@
 
 ※  게시글 댓글
 
-![스크린샷 2024-05-31 144135](https://github.com/zz106603/blog_react/assets/45379781/074291c8-d225-4b41-a796-787ef5f52f3c)
+![스크린샷 2024-07-01 170233](https://github.com/zz106603/blog_springboot/assets/45379781/4fb94cc7-2420-4c3b-afb8-5543485b2708)
 
 ※  게시글 수정
 
@@ -80,9 +80,6 @@
 
 ![스크린샷 2024-05-29 190250](https://github.com/zz106603/blog_react/assets/45379781/11c3132d-d861-473f-8875-20cb0f4927b2)
 
-※ 댓글 조회/등록/삭제
-
-![스크린샷 2024-07-01 170233](https://github.com/zz106603/blog_springboot/assets/45379781/4fb94cc7-2420-4c3b-afb8-5543485b2708)
 
 ### 사용자
 ※ 로그인 페이지
