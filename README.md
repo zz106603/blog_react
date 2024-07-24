@@ -58,25 +58,30 @@
 
 ![스크린샷 2024-05-30 164759](https://github.com/zz106603/blog_react/assets/45379781/bc864deb-215f-47ed-a693-5824941974b6)
 
+※  게시글 등록
 
-※  게시글 상세보기(추천)
+![스크린샷 2024-07-24 111728](https://github.com/user-attachments/assets/5ccd82bf-a7c5-4cc8-9d08-cd7d3cc357c1)
+
+※  게시글 상세보기
+
+![스크린샷 2024-07-24 111701](https://github.com/user-attachments/assets/b96859ed-4d76-431b-9538-eb932ab30bc9)
+
+※  게시글 추천
 
 ![스크린샷 2024-05-30 163127](https://github.com/zz106603/blog_react/assets/45379781/8c2b713c-9692-4b66-9248-82bc8f475828)
 ![스크린샷 2024-05-30 163133](https://github.com/zz106603/blog_react/assets/45379781/66be39d1-89a1-426a-bef3-78bf07d7b3ea)
-![스크린샷 2024-07-24 111701](https://github.com/user-attachments/assets/b96859ed-4d76-431b-9538-eb932ab30bc9)
-
-※  게시글 댓글
-
-![스크린샷 2024-07-01 170233](https://github.com/zz106603/blog_springboot/assets/45379781/4fb94cc7-2420-4c3b-afb8-5543485b2708)
 
 ※  게시글 수정
 
 ![스크린샷 2024-05-30 165017](https://github.com/zz106603/blog_react/assets/45379781/da104cef-24fa-4235-83f5-5d2da3365f50)
-![스크린샷 2024-07-24 111728](https://github.com/user-attachments/assets/5ccd82bf-a7c5-4cc8-9d08-cd7d3cc357c1)
 
 ※  게시글 삭제
 
 ![스크린샷 2024-05-20 202137](https://github.com/zz106603/blog_react/assets/45379781/c52d685a-23cb-4f44-a591-96d8b54cac0d)
+
+※  게시글 댓글
+
+![스크린샷 2024-07-01 170233](https://github.com/zz106603/blog_springboot/assets/45379781/4fb94cc7-2420-4c3b-afb8-5543485b2708)
 
 ※  게시글 페이징
 
