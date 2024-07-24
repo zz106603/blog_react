@@ -9,6 +9,8 @@ import instance from '../Axios/AxiosConfig';
 import Form from 'react-bootstrap/Form';
 import {format} from 'date-fns'
 
+import DOMPurify from 'dompurify'; //HTML 태그와 속성 제거 XSS 공격 방지
+
 const BoardDetail = () => {
 
     const [isRecommended, setIsRecommended] = useState(false);
@@ -20,6 +22,8 @@ const BoardDetail = () => {
     const [board, setBoard] = useState([]);
     const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]);
+
+    const sanitizedContent = DOMPurify.sanitize(board.content); //텍스트 에디터 XSS 공격 방지
 
     //게시글 조회
     const getBoard = async (first) => {
@@ -238,7 +242,10 @@ const BoardDetail = () => {
                   <small style={{marginLeft:"1%"}}>추천{board.recomCount}</small>
 
             </Toast.Header>
-            <Toast.Body style={{height: "60vh", overflowY: "auto"}}>{board.content}</Toast.Body>
+            {/* <Toast.Body style={{height: "60vh", overflowY: "auto"}}>{board.content}</Toast.Body> */}
+            {/* <Toast.Body style={{ height: "60vh", overflowY: "auto" }} dangerouslySetInnerHTML={{ __html: board.content }} /> */}
+            <Toast.Body style={{ height: "60vh", overflowY: "auto" }} dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
+
             <hr/>
 
             <div className='container text-center'>

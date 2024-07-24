@@ -43,6 +43,10 @@
 - 댓글 스크롤 영역 적용
 - 사용자 기준 삭제 버튼 활성화
 
+### 2024-07-24
+- 텍스트 에디터 추가(ReactQuill)
+- 입력창, 콘텐트 영역 수정
+
 ---
 
 ### 게시판
@@ -59,6 +63,7 @@
 
 ![스크린샷 2024-05-30 163127](https://github.com/zz106603/blog_react/assets/45379781/8c2b713c-9692-4b66-9248-82bc8f475828)
 ![스크린샷 2024-05-30 163133](https://github.com/zz106603/blog_react/assets/45379781/66be39d1-89a1-426a-bef3-78bf07d7b3ea)
+![스크린샷 2024-07-24 111701](https://github.com/user-attachments/assets/b96859ed-4d76-431b-9538-eb932ab30bc9)
 
 ※  게시글 댓글
 
@@ -67,6 +72,7 @@
 ※  게시글 수정
 
 ![스크린샷 2024-05-30 165017](https://github.com/zz106603/blog_react/assets/45379781/da104cef-24fa-4235-83f5-5d2da3365f50)
+![스크린샷 2024-07-24 111728](https://github.com/user-attachments/assets/5ccd82bf-a7c5-4cc8-9d08-cd7d3cc357c1)
 
 ※  게시글 삭제
 

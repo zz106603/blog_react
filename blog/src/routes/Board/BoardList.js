@@ -93,7 +93,6 @@ const BoardList = () => {
 
         <div className="d-flex justify-content-between mb-1">
             <select style={{width:"15%"}} className="form-select" aria-label="Default select example" onChange={handleSortChange}>
-                <option selected>정렬</option>
                 <option value="1">최신순</option>
                 <option value="2">오래된순</option>
                 <option value="3">조회순</option>

@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from 'react'
-import axios from "axios"
-import { useParams } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 
-import Toast from 'react-bootstrap/Toast';
 import Nav from 'react-bootstrap/Nav';
 
 import Form from 'react-bootstrap/Form';
 import instance from '../Axios/AxiosConfig';
+
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css'; //텍스트 에디터
+
 
 const BoardCreate = () => {
 
@@ -39,7 +40,9 @@ const BoardCreate = () => {
 
     // 입력값이 변경될 때 상태를 업데이트합니다.
     const handleChangeContent = (e) => {
-        setContent(e.target.value);
+        // setContent(e.target.value);
+        // 텍스트 에디터 사용할 때 e로만 사용
+        setContent(e);
     };
 
     //등록
@@ -102,9 +105,10 @@ const BoardCreate = () => {
             <Form.Label className='fw-bold'>제목</Form.Label>
             <Form.Control type="text" value={title} onChange={handleChangeTitle} />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1" style={{height:"300px"}}>
             <Form.Label className='fw-bold'>내용</Form.Label>
-            <Form.Control as="textarea" rows={10} value={content} onChange={handleChangeContent} />
+            <ReactQuill theme="snow" value={content} onChange={handleChangeContent} style={{height:"200px"}}/>
+            {/* <Form.Control as="textarea" rows={10} value={content} onChange={handleChangeContent} /> */}
         </Form.Group>
             <div className='container text-center'>
                 <div className="row justify-content-md-center">
