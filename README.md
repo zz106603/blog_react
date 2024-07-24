@@ -54,10 +54,6 @@
 
 ![스크린샷 2024-05-30 164543](https://github.com/zz106603/blog_react/assets/45379781/7a901634-321e-4a09-a8c8-20da2901de8c)
 
-※  게시글 상세보기
-
-![스크린샷 2024-05-30 164759](https://github.com/zz106603/blog_react/assets/45379781/bc864deb-215f-47ed-a693-5824941974b6)
-
 ※  게시글 등록
 
 ![스크린샷 2024-07-24 111728](https://github.com/user-attachments/assets/5ccd82bf-a7c5-4cc8-9d08-cd7d3cc357c1)
@@ -73,11 +69,11 @@
 
 ※  게시글 수정
 
-![스크린샷 2024-05-30 165017](https://github.com/zz106603/blog_react/assets/45379781/da104cef-24fa-4235-83f5-5d2da3365f50)
+![스크린샷 2024-07-24 112632](https://github.com/user-attachments/assets/16e9a439-5d23-4b0e-8e4c-5d0ba1edeac1)
 
 ※  게시글 삭제
 
-![스크린샷 2024-05-20 202137](https://github.com/zz106603/blog_react/assets/45379781/c52d685a-23cb-4f44-a591-96d8b54cac0d)
+![스크린샷 2024-07-24 112714](https://github.com/user-attachments/assets/12f24521-3a8b-482c-9b79-137cd6e9f421)
 
 ※  게시글 댓글
 
