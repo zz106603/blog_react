@@ -26,15 +26,14 @@ const BoardDetail = () => {
     const sanitizedContent = DOMPurify.sanitize(board.content); //텍스트 에디터 XSS 공격 방지
 
     //게시글 조회
-    const getBoard = async (first) => {
-      console.log(first)
+    const getBoard = async (incrementViewCount) => {
       try{
         const resp = (await instance.get(`/api/posts/${postId}`, {
           params: {
-              firstFlag: first,
+            incrementViewCount: incrementViewCount,
           }
         })).data
-        setBoard(resp.data)
+        setBoard(resp)
         setLoading(false);
       }catch(error){
         console.log('API 호출 에러: ', error)
@@ -58,7 +57,7 @@ const BoardDetail = () => {
           }
         });
         if(response){
-          getBoard(0)
+          getBoard(false)
           checkRecommendation();
           alert('추천되었습니다.')
         }
@@ -85,7 +84,7 @@ const BoardDetail = () => {
           }
         });
         if(response){
-          getBoard(0)
+          getBoard(false)
           checkRecommendation();
           alert('추천이 취소되었습니다.')
         }
@@ -106,10 +105,10 @@ const BoardDetail = () => {
         });
 
         console.log(response.data)
-        if(response.data.status === 200){
+        // if(response.data.status === 200){
+        if(response.data){
           setIsRecommended(true);
         }else{
-          console.log(204)
           setIsRecommended(false);
         }
       }catch(error){
@@ -121,9 +120,9 @@ const BoardDetail = () => {
     const getComments = async () => {
       try{
         const resp = (await instance.get(`/api/posts/comment/${postId}`, {})).data
-        setComments(resp.data)
+        setComments(resp)
         setLoading(false);
-        console.log(comments);
+        // console.log(comments);
       }catch(error){
         console.log('API 호출 에러: ', error)
       }
@@ -154,7 +153,7 @@ const BoardDetail = () => {
                   },
               });
       
-              if (response.status === 201) { // HTTP 상태 코드가 200번대인 경우 요청이 성공했다고 가정합니다.
+              if (response.status === 200) { // HTTP 상태 코드가 200번대인 경우 요청이 성공했다고 가정합니다.
                   alert('등록이 완료되었습니다.')
                   console.log('Form submitted successfully:', response.data);
                   getComments();
@@ -190,7 +189,7 @@ const BoardDetail = () => {
 
 
     useEffect(()=>{
-        getBoard(1);
+        getBoard(true);
         getComments();
         checkRecommendation();
     }, []);

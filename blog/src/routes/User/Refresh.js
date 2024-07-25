@@ -15,7 +15,7 @@ const Refresh = async() => {
             'Content-Type': 'application/json'
           }
         });
-        return res.data.data;
+        return res.data;
       } catch (error) {
         console.log('API 호출 에러: ', error)
       }

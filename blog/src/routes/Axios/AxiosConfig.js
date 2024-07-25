@@ -22,7 +22,7 @@ const instance = axios.create({
 const getRefreshToken = async () => {
     try {
         const res = await Refresh();
-        const accessToken = res.data.data;
+        const accessToken = res.data;
         return accessToken;
     } catch (e) {
       // 로그아웃 처리

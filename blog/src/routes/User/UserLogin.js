@@ -45,12 +45,12 @@ const UserLogin = () => {
         }
     });
 
-      console.log(response.data.data);
+      console.log(response.data);
 
-      if(response.data.status === 200){
-        localStorage.setItem('access_token', response.data.data.accessToken)
-        localStorage.setItem('refresh_token', response.data.data.refreshToken)
-        localStorage.setItem('id', response.data.data.loginId)
+      if(response.status === 200){
+        localStorage.setItem('access_token', response.data.accessToken)
+        localStorage.setItem('refresh_token', response.data.refreshToken)
+        localStorage.setItem('id', response.data.loginId)
          const previousPage = window.document.referrer;
          const signupPagePattern = /\/user\/signup$/;
          if (previousPage && !signupPagePattern.test(previousPage)) {
@@ -72,8 +72,8 @@ const UserLogin = () => {
       //       console.error('Form submission failed:', response.statusText);
       // }
     } catch (error) {
-        alert('로그인에 실패했습니다.')
-        console.error('Error submitting form:', error);
+      alert('아이디나 비밀번호가 일치하지 않습니다.')
+      console.error('Error submitting form:', error);
     }
 
    };

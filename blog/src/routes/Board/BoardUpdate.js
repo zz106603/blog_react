@@ -24,16 +24,16 @@ const BoardUpdate = () => {
         try{
             const resp = (await instance.get(`/api/posts/${postId}`, {
                 params: {
-                    firstFlag: 1
+                    incrementViewCount: true
                 }
             })).data
-            setBoard(resp.data)
+            setBoard(resp)
             setLoading(false);
     
-            setTitle(resp.data.title)
-            setContent(resp.data.content)
-            setCategory(resp.data.category)
-            setWriter(resp.data.writer)
+            setTitle(resp.title)
+            setContent(resp.content)
+            setCategory(resp.category)
+            setWriter(resp.writer)
         }catch(error){
             console.log('API 호출 에러: ', error)
         }
@@ -83,7 +83,7 @@ const BoardUpdate = () => {
                 },
             });
     
-            if (response.status === 201) { // HTTP 상태 코드가 200번대인 경우 요청이 성공했다고 가정합니다.
+            if (response.status === 200) { // HTTP 상태 코드가 200번대인 경우 요청이 성공했다고 가정합니다.
                 alert('수정이 완료되었습니다.')
                 console.log('Form submitted successfully:', response.data);
             } else {
@@ -98,18 +98,34 @@ const BoardUpdate = () => {
       };
 
     //삭제
-    const deleteBoard = async () => {
+    const deleteBoard = async (event) => {
+        event.preventDefault();
+        
         if (window.confirm('포스트를 삭제하시겠습니까?')) {
-            try {
-              await instance.delete(`/api/posts/delete?postId=${postId}`);
-                alert('삭제되었습니다.')
-                window.location.href = `/board`;
-            } catch (error) {
-                console.error('삭제 실패:', error);
-                alert('삭제에 실패하였습니다.');
-                window.location.href = `/board/${postId}`;
-                // 실패했을 때 처리할 로직 추가
+            // try {
+            //   await instance.delete(`/api/posts/delete?postId=${postId}`);
+            //     alert('삭제되었습니다.')
+            //     window.location.href = `/board`;
+            // } catch (error) {
+            //     console.error('삭제 실패:', error);
+            //     alert('삭제에 실패하였습니다.');
+            //     window.location.href = `/board/${postId}`;
+            //     // 실패했을 때 처리할 로직 추가
+            // }
+
+            try{
+                const response =  await instance.delete(`/api/posts/delete?postId=${postId}`);
+        
+                if (response.status === 200) { // HTTP 상태 코드가 200번대인 경우 요청이 성공했다고 가정합니다.
+                    alert('삭제가 완료되었습니다.')
+                } else {
+                    alert('삭제에 실패했습니다.')
+                }
+            }catch(error){
+                alert('삭제에 실패했습니다.')
+                console.log(error);
             }
+            window.location.href = `/board`;
           }
       };
 

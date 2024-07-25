@@ -10,6 +10,20 @@ import { Form, Container, Row, Col } from 'react-bootstrap'
 
 const BoardList = () => {
 
+    const backgroundImageStyle = {
+        // backgroundImage: 'url(/sky.jpg)', // 여기에 이미지 경로를 입력하세요
+        // backgroundSize: 'cover',
+        // backgroundPosition: 'center',
+        // position: 'absolute',
+        // top: 0,
+        // left: 0,
+        // width: '100%',
+        // height: '100%',
+        // // opacity: 0.5, // 이미지의 불투명도를 조절합니다 (0.0 - 1.0)        
+        // zIndex: -1 // 배경 이미지를 맨 뒤로 보냅니다
+    };
+
+
     const [sortOrder, setSortOrder] = useState(1);
     const [boardList, setBoardList] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
@@ -23,8 +37,8 @@ const BoardList = () => {
                     orderType: sortOrder
                 }
             })).data
-            setBoardList(resp.data.list)
-            setPagination(resp.data.pagination)
+            setBoardList(resp.list)
+            setPagination(resp.pagination)
         }catch(error){
             console.error('API 요청 에러: ', error)
             window.location.href = "/user/login"
@@ -87,7 +101,7 @@ const BoardList = () => {
     };
 
     return(
-        <div style={{marginTop:"2%", marginLeft:"20%", width:"60%"}}>
+        <div style={{marginTop:"2%", marginLeft:"20%", width:"60%", ...backgroundImageStyle}}>
         {/* <Table striped bordered hover variant="light"> */}
 
 
