@@ -55,9 +55,9 @@ const UserLogin = () => {
          const signupPagePattern = /\/user\/signup$/;
          if (previousPage && !signupPagePattern.test(previousPage)) {
           window.history.back(); // 이전 페이지로 이동
-         }else
+         }else{
           window.location.href = "/"
-        
+         }
       }else{
         alert('아이디나 비밀번호가 일치하지 않습니다.')
       }
@@ -78,10 +78,50 @@ const UserLogin = () => {
 
    };
 
+   const oauthLoginProcess = async (event) => {
+    event.preventDefault();
+
+    try {
+        // 백엔드로부터 JWT 토큰을 받아오는 API 호출
+        const loginUrl = 'http://localhost:8080/oauth2/authorization/google'; // OAuth 로그인 엔드포인트
+
+        const response = await axios.get(loginUrl, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (response.status === 200) {
+            // JWT 토큰을 로컬 스토리지에 저장
+            localStorage.setItem('access_token', response.data.accessToken);
+            localStorage.setItem('refresh_token', response.data.refreshToken);
+            localStorage.setItem('id', response.data.loginId)
+            
+            const previousPage = window.document.referrer;
+            const signupPagePattern = /\/user\/signup$/;
+            if (previousPage && !signupPagePattern.test(previousPage)) {
+              window.history.back(); // 이전 페이지로 이동
+            }else
+              window.location.href = "/"
+        } else {
+            alert('OAuth 로그인 실패');
+        }
+    } catch (error) {
+        console.error('OAuth 로그인 처리 중 에러 발생:', error);
+        alert('OAuth 로그인 처리 중 오류가 발생했습니다.');
+    }
+};
+
   // 회원가입 페이지 이동
   const goSignupPage = () => {
     window.location.href = `/user/signup`
   };
+
+  //Oauth 페이지 이동
+  const startOauthLogin = () => {
+    window.location.href = 'http://localhost:8080/oauth2/authorization/google';
+};
+  
 
   return (
 
@@ -111,6 +151,12 @@ const UserLogin = () => {
                         회원가입
                 </Button>
                 </div>
+
+              <div>
+              <Button variant="primary" onClick={startOauthLogin}>
+                        Google로 로그인
+              </Button>
+              </div>
                 
             </Form>
         </div>

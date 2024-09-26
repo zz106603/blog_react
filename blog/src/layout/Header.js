@@ -22,6 +22,8 @@ const Header = () => {
         setloginId(logId);
       }, []);
 
+      
+
       const handleLogout = () => {
         // 로그아웃 버튼 클릭 시 localStorage에서 accessToken 제거
         localStorage.removeItem('access_token');

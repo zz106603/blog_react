@@ -7,6 +7,7 @@ import BoardUpdate from "./routes/Board/BoardUpdate";
 import BoardCreate from "./routes/Board/BoardCreate";
 import UserLogin from "./routes/User/UserLogin";
 import UserSignup from "./routes/User/UserSignup";
+import OAuth2RedirectHandler from './routes/User/OAuth2RedirectHandler';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route path="board/:postId" element={<BoardDetail/>}/>
       <Route path="board/update/:postId" element={<BoardUpdate/>}/>
       <Route path="board/create" element={<BoardCreate/>}/>
+      <Route path="oauth2/redirect" element={<OAuth2RedirectHandler/>}/>
       <Route path="user/login" element={<UserLogin/>}/>
       <Route path="user/signup" element={<UserSignup/>}/>
     </Routes>
