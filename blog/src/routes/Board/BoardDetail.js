@@ -104,7 +104,7 @@ const BoardDetail = () => {
           }
         });
 
-        console.log(response.data)
+        // console.log(response.data)
         // if(response.data.status === 200){
         if(response.data){
           setIsRecommended(true);
@@ -143,7 +143,7 @@ const BoardDetail = () => {
         comment: comment
       };
 
-      console.log(formData)
+      // console.log(formData)
 
       if (window.confirm('댓글을 등록하시겠습니까?')) {
           try {
@@ -155,7 +155,7 @@ const BoardDetail = () => {
       
               if (response.status === 200) { // HTTP 상태 코드가 200번대인 경우 요청이 성공했다고 가정합니다.
                   alert('등록이 완료되었습니다.')
-                  console.log('Form submitted successfully:', response.data);
+                  // console.log('Form submitted successfully:', response.data);
                   getComments();
                   setComment('');
               } else {

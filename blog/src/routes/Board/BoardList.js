@@ -27,7 +27,7 @@ const BoardList = () => {
     const [sortOrder, setSortOrder] = useState(1);
     const [boardList, setBoardList] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [pagination, setPagination] = useState([]);
+    const [pagination, setPagination] = useState({});
 
     const getBoardList = async (page) => {
         try{

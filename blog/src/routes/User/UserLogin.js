@@ -5,6 +5,7 @@ import axios from "axios"
 import { Form, Button, Container, Row, Col } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import instance from '../Axios/AxiosConfig';
+import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 
 const UserLogin = () => {
 
@@ -104,12 +105,15 @@ const UserLogin = () => {
             }else
               window.location.href = "/"
         } else {
-            alert('OAuth 로그인 실패');
+            oauthLoginFailure();
         }
     } catch (error) {
-        console.error('OAuth 로그인 처리 중 에러 발생:', error);
-        alert('OAuth 로그인 처리 중 오류가 발생했습니다.');
+        oauthLoginFailure();
     }
+};
+
+const oauthLoginFailure = () => {
+  alert('OAuth 로그인 처리 중 오류가 발생했습니다.');
 };
 
   // 회원가입 페이지 이동
@@ -145,18 +149,17 @@ const UserLogin = () => {
                         로그인
                     </Button>
                 </div>
+                <div className="d-grid gap-2 mt-2">
+                  <Button variant="light" onClick={startOauthLogin}>
+                          Google로 로그인
+                  </Button>
+                </div>
 
                 <div style={{marginTop:"10%"}}>
                 <Button variant="light" onClick={goSignupPage}>
                         회원가입
                 </Button>
                 </div>
-
-              <div>
-              <Button variant="primary" onClick={startOauthLogin}>
-                        Google로 로그인
-              </Button>
-              </div>
                 
             </Form>
         </div>
