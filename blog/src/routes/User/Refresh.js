@@ -4,13 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import instance from '../Axios/AxiosConfig';
 
 const Refresh = async() => {
-
-    const reToken = {
-      "refreshToken": localStorage.getItem('refresh_token')
-    };
  
     try {
-        const res = await instance.post(`/api/auth/refresh`, reToken, {
+        const res = await instance.post(`/api/auth/refresh`, {
           headers: {
             'Content-Type': 'application/json'
           }

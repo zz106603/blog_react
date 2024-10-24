@@ -15,7 +15,9 @@ const BoardDetail = () => {
 
     const [isRecommended, setIsRecommended] = useState(false);
 
-    const loginId = localStorage.getItem('id');
+    // const loginId = '';
+
+    const [loginId, setLoginId] = useState('');
    
     const {postId} = useParams();
     const [loading, setLoading] = useState(true);
@@ -46,7 +48,7 @@ const BoardDetail = () => {
       
       const params = {
         postId : postId,
-        userId: localStorage.getItem('id'),
+        userId: loginId,
         countFlag : 1
       }
 
@@ -73,7 +75,7 @@ const BoardDetail = () => {
       
       const params = {
         postId : postId,
-        userId: localStorage.getItem('id'),
+        userId: loginId,
         countFlag : 0
       }
 
@@ -189,9 +191,25 @@ const BoardDetail = () => {
 
 
     useEffect(()=>{
-        getBoard(true);
-        getComments();
-        checkRecommendation();
+
+       // 비동기 요청을 수행하기 위해 별도 함수 정의
+       const fetchUserInfo = async () => {
+        try {
+          const response = await instance.get('/api/user/info'); // 기본 설정이 적용된 instance 사용
+  
+          if (response.status === 200) {
+            console.log(response.data);
+            setLoginId(response.data.loginId); // response.data에서 필요한 정보를 설정
+          }
+        } catch (error) {
+          console.error("사용자 정보를 가져오는 중 오류 발생:", error);
+        }
+      };
+  
+      fetchUserInfo();
+      getBoard(true);
+      getComments();
+      checkRecommendation();
     }, []);
 
     // 수정 버튼을 보여줄지 여부를 결정하는 함수

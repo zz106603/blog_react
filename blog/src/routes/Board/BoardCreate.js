@@ -12,15 +12,30 @@ import 'react-quill/dist/quill.snow.css'; //텍스트 에디터
 
 const BoardCreate = () => {
 
-    // const [writer, setWriter] = useState('');
+    const [writer, setWriter] = useState('');
     
-    const writer = localStorage.getItem('id') || ''; // 기본값은 빈 문자열입니다.
+    // const writer = ''; // 기본값은 빈 문자열입니다.
     const [category, setCategory] = useState('');
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
 
     useEffect(()=>{
-
+        // 비동기 요청을 수행하기 위해 별도 함수 정의
+      const fetchUserInfo = async () => {
+        try {
+          const response = await instance.get('/api/user/info'); // 기본 설정이 적용된 instance 사용
+  
+          if (response.status === 200) {
+            console.log(response.data);
+            setWriter(response.data.loginId); // response.data에서 필요한 정보를 설정
+          }
+        } catch (error) {
+          console.error("사용자 정보를 가져오는 중 오류 발생:", error);
+        }
+      };
+  
+      // 비동기 함수 호출
+      fetchUserInfo();
     }, []);
 
     // const handleChangeWriter = (e) => {

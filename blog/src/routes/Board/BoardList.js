@@ -41,7 +41,7 @@ const BoardList = () => {
             setPagination(resp.pagination)
         }catch(error){
             console.error('API 요청 에러: ', error)
-            window.location.href = "/user/login"
+            // window.location.href = "/user/login"
         }
     }
 

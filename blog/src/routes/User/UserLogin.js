@@ -33,85 +33,42 @@ const UserLogin = () => {
     //userInfo.email.includes('.') &&
     //userInfo.password.length >= 10
 
+    const loginProgcess = async (event) => {
+      event.preventDefault();
     
-   const loginProgcess = async (event) => {
-    event.preventDefault();
+      try {
+        const loginUrl = '/api/auth/login'; // axios 인스턴스의 baseURL을 사용하기 때문에 상대 경로 사용
     
-    try{
-      const loginUrl = 'http://localhost:8080/api/auth/login'; // Spring Security
-      
-      const response = await axios.post(loginUrl, userInfo, {
-        headers: {
+        // 사용자 로그인 정보 전송 (쿠키는 서버에서 설정하도록 함)
+        const response = await instance.post(loginUrl, userInfo, {
+          headers: {
             'Content-Type': 'application/json'
-        }
-    });
-
-      console.log(response.data);
-
-      if(response.status === 200){
-        localStorage.setItem('access_token', response.data.accessToken)
-        localStorage.setItem('refresh_token', response.data.refreshToken)
-        localStorage.setItem('id', response.data.loginId)
-         const previousPage = window.document.referrer;
-         const signupPagePattern = /\/user\/signup$/;
-         if (previousPage && !signupPagePattern.test(previousPage)) {
-          window.history.back(); // 이전 페이지로 이동
-         }else{
-          window.location.href = "/"
-         }
-      }else{
-        alert('아이디나 비밀번호가 일치하지 않습니다.')
-      }
-
-
-      // if (response.status === 201) {
-      //   alert('회원가입이 완료되었습니다.')
-      //   window.location.href = `/user/login`
-      //   console.log('Form submitted successfully:', response.data);
-      // } else {
-      //       alert('회원가입에 실패했습니다.')
-      //       console.error('Form submission failed:', response.statusText);
-      // }
-    } catch (error) {
-      alert('아이디나 비밀번호가 일치하지 않습니다.')
-      console.error('Error submitting form:', error);
-    }
-
-   };
-
-   const oauthLoginProcess = async (event) => {
-    event.preventDefault();
-
-    try {
-        // 백엔드로부터 JWT 토큰을 받아오는 API 호출
-        const loginUrl = 'http://localhost:8080/oauth2/authorization/google'; // OAuth 로그인 엔드포인트
-
-        const response = await axios.get(loginUrl, {
-            headers: {
-                'Content-Type': 'application/json'
-            }
+          }
         });
-
+    
+        // 로그인 성공 시
         if (response.status === 200) {
-            // JWT 토큰을 로컬 스토리지에 저장
-            localStorage.setItem('access_token', response.data.accessToken);
-            localStorage.setItem('refresh_token', response.data.refreshToken);
-            localStorage.setItem('id', response.data.loginId)
-            
-            const previousPage = window.document.referrer;
-            const signupPagePattern = /\/user\/signup$/;
-            if (previousPage && !signupPagePattern.test(previousPage)) {
-              window.history.back(); // 이전 페이지로 이동
-            }else
-              window.location.href = "/"
+          // 쿠키는 서버에서 설정됨. 쿠키에 토큰을 설정한 상태로, 이후 요청에 사용됨.
+          const previousPage = window.document.referrer;
+          const signupPagePattern = /\/user\/signup$/;
+    
+          // 이전 페이지로 이동 또는 홈으로 이동
+          if (previousPage && !signupPagePattern.test(previousPage)) {
+            window.history.back(); // 이전 페이지로 이동
+          } else {
+            window.location.href = "/"; // 홈 페이지로 이동
+          }
         } else {
-            oauthLoginFailure();
+          // 로그인 실패 시 처리
+          alert('아이디나 비밀번호가 일치하지 않습니다.');
         }
-    } catch (error) {
-        oauthLoginFailure();
-    }
-};
-
+      } catch (error) {
+        // 로그인 요청 실패 시 처리
+        console.log('로그인 에러:', error);
+        alert('로그인 도중 오류가 발생했습니다.');
+      }
+    };
+    
 const oauthLoginFailure = () => {
   alert('OAuth 로그인 처리 중 오류가 발생했습니다.');
 };
@@ -124,6 +81,9 @@ const oauthLoginFailure = () => {
   //Oauth 페이지 이동
   const startOauthLogin = () => {
     window.location.href = 'http://localhost:8080/oauth2/authorization/google';
+
+    // const googleAuthUrl = 'http://localhost:8080/oauth2/authorization/google';
+    // window.open(googleAuthUrl, '_blank', 'width=500,height=600');
 };
   
 
