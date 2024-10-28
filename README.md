@@ -98,7 +98,7 @@
 ### 사용자
 ※ 로그인 페이지
 
-![스크린샷 2024-05-22 170240](https://github.com/zz106603/blog_springboot/assets/45379781/8ab4d10f-10d7-4f13-936b-ea46e6bc8cee)
+![스크린샷 2024-10-28 222315](https://github.com/user-attachments/assets/ae68f5f2-529b-4704-a06a-a9e2b26ae389)
 
 ※ 회원가입 페이지
 
