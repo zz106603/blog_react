@@ -54,6 +54,11 @@
 ### 2024-09-26
 - OAuth 2.0 연동
 
+### 2024-11-04
+- 생성형 AI 기능 추가
+- 게시글 생성, 수정 시 문법 검사 기능 추가
+- 게시글 생성, 수정 UI 수정
+
 ---
 
 ### 게시판
@@ -63,7 +68,7 @@
 
 ※  게시글 등록
 
-![스크린샷 2024-07-24 111728](https://github.com/user-attachments/assets/5ccd82bf-a7c5-4cc8-9d08-cd7d3cc357c1)
+![스크린샷 2024-11-04 172205](https://github.com/user-attachments/assets/0851cd2a-53b5-4c95-8cfb-a518293d1b0b)
 
 ※  게시글 상세보기
 
@@ -76,7 +81,7 @@
 
 ※  게시글 수정
 
-![스크린샷 2024-07-24 112632](https://github.com/user-attachments/assets/16e9a439-5d23-4b0e-8e4c-5d0ba1edeac1)
+![스크린샷 2024-11-04 172205](https://github.com/user-attachments/assets/0851cd2a-53b5-4c95-8cfb-a518293d1b0b)
 
 ※  게시글 삭제
 
