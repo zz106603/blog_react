@@ -65,46 +65,46 @@
 #### ※ 게시글 목록
 
 ![스크린샷 2024-05-30 164543](https://github.com/zz106603/blog_react/assets/45379781/7a901634-321e-4a09-a8c8-20da2901de8c)
-
+---
 #### ※  게시글 등록
 
 ![스크린샷 2024-11-04 172205](https://github.com/user-attachments/assets/0851cd2a-53b5-4c95-8cfb-a518293d1b0b)
-
+---
 #### ※  게시글 상세보기
 
 ![스크린샷 2024-07-24 111701](https://github.com/user-attachments/assets/b96859ed-4d76-431b-9538-eb932ab30bc9)
-
+---
 #### ※  게시글 추천
 
 ![스크린샷 2024-05-30 163127](https://github.com/zz106603/blog_react/assets/45379781/8c2b713c-9692-4b66-9248-82bc8f475828)
 ![스크린샷 2024-05-30 163133](https://github.com/zz106603/blog_react/assets/45379781/66be39d1-89a1-426a-bef3-78bf07d7b3ea)
-
+---
 #### ※  게시글 수정
 
 ![스크린샷 2024-11-04 172205](https://github.com/user-attachments/assets/0851cd2a-53b5-4c95-8cfb-a518293d1b0b)
-
+---
 #### ※  게시글 삭제
 
 ![스크린샷 2024-07-24 112714](https://github.com/user-attachments/assets/12f24521-3a8b-482c-9b79-137cd6e9f421)
-
+---
 #### ※  게시글 댓글
 
 ![스크린샷 2024-07-01 170233](https://github.com/zz106603/blog_springboot/assets/45379781/4fb94cc7-2420-4c3b-afb8-5543485b2708)
-
+---
 #### ※  게시글 페이징
 
 ![스크린샷 2024-05-21 164515](https://github.com/zz106603/blog_springboot/assets/45379781/55d32ae7-58ba-40f9-8797-13c82cc6353b)
-
+---
 #### ※ 조회/추천 및 로그인/로그아웃 화면 갱신
 
 ![스크린샷 2024-05-29 190250](https://github.com/zz106603/blog_react/assets/45379781/11c3132d-d861-473f-8875-20cb0f4927b2)
 
-
+---
 ### 사용자
 #### ※ 로그인 페이지
 
 ![스크린샷 2024-10-28 222315](https://github.com/user-attachments/assets/ae68f5f2-529b-4704-a06a-a9e2b26ae389)
-
+---
 #### ※ 회원가입 페이지
 
 ![스크린샷 2024-10-28 222133](https://github.com/user-attachments/assets/c9c54784-e505-45c9-b04b-ecd454768cda)
